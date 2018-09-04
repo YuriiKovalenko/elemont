@@ -1,0 +1,36 @@
+@images: "../../../../assets/images";
+
+#contacts {
+    background-color: #343a40;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.13) inset,
+      0 -5px 8px rgba(0, 0, 0, 0.13) inset;
+    .contact {
+      margin: 10px 20px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.58);
+      -webkit-box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.58);
+      box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.58);
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      height: 25vh;
+      .contact-ico {
+        font-size: 35px;
+        display: block;
+        margin: 20px;
+        z-index: 40;
+        animation: hint 6s infinite;
+      }
+      .contact-text {
+        display: block;
+        max-width: 320px;
+        margin-right: auto;
+        margin-left: auto;
+        padding-bottom: 10px;
+        z-index: 40;
+      }
+    }
+    .section-header h2 {
+      color: #f8f9fa;
+    }
+  }
