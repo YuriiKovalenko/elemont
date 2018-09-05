@@ -1,13 +1,12 @@
-<nav class="navbar" class="navbar navbar-expand-lg navbar-light" (click)="$event.target.target ? scroller.scrollTo($event.target.target) : null">
+<nav class="navbar navbar-expand-lg navbar-light transparent" (click)="$event.target.target ? scroller.scrollTo($event.target.target) : null">
   <div class="container">
     <a target=".head" class="navbar-brand">Елемонт</a>
-    <button class="hamburger navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="hamburger navbar-toggler" type="button" data-toggle="collapse" data-target="[navbarNav]" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="hr"></span>
       <span class="hr"></span>
       <span class="hr"></span>
     </button>
-    <div class="line"></div>
-    <div class="collapse navbar-collapse justify-content-end" class="navbarNav">
+    <div class="collapse navbar-collapse justify-content-end" navbarNav>
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" target=".advantages">Переваги</a>
@@ -25,10 +24,6 @@
           <a class="nav-link" target=".contacts">Контакти</a>
         </li>
       </ul>
-    </div>
-    <div class="lang-switch">
-      <div class="lang ukr" role='ukr'></div>
-      <div class="lang rus" role='rus'></div>
     </div>
   </div>
 </nav>
