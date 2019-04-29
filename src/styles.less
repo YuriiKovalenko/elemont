@@ -1,0 +1,68 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  src: url(assets/fonts/AvenirNextCyr-Light.ttf);
+  font-family: 'Avenir';
+}
+
+div,
+p,
+a,
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Avenir', sans-serif !important;
+}
+
+h1,
+h3,
+h4 {
+  text-align: center;
+}
+
+@media (max-width: 530px) {
+  h1 {
+    font-size: 2.3rem;
+  }
+}
+
+@media (max-width: 350px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 530px) {
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+
+section {
+  padding: 25px 0;
+}
+
+*:focus {
+  outline: none !important;
+}
+
+.section-header {
+  position: relative;
+  padding: 25px 0 60px;
+  -webkit-box-pack: center !important;
+  -ms-flex-pack: center !important;
+  justify-content: center !important;
+  &::after {
+    content: '';
+    position: absolute;
+    left: calc(50% - 75px);
+    bottom: 30px;
+    width: 150px;
+    height: 3px;
+    margin-bottom: 15px;
+    background-color: #1565c0;
+    border-radius: 10%;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.13);
+  }
+}
+

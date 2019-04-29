@@ -1,0 +1,23 @@
+{
+  "name": "Елемонт",
+  "short_name": "Елемонт",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#1565c0",
+  "description": "Системи безпеки, сигналізація, відеонагляд, облік підприємтсв",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "100x100",
+      "type": "image/x-icon"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "windows",
+      "url": "https://elemont.com.ua"
+    }
+  ]
+}

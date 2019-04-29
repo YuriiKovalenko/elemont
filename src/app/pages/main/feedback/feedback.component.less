@@ -1,0 +1,136 @@
+@images: '/assets/images';
+
+.feedback {
+  background: url('@{images}/feedback.jpg') center top / cover no-repeat;
+
+  &-card {
+    background-color: rgba(248, 249, 250, 0.96);
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+      0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+
+    &-field {
+      margin-bottom: 25px;
+      padding-top: 8px;
+      position: relative;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.52);
+
+      .input {
+        padding: 8px 0;
+        width: 100%;
+        border: none;
+        background: transparent;
+        z-index: 3;
+
+        & ~ .label-wrapper {
+          z-index: 2;
+          font-weight: bold;
+          color: rgba(0, 0, 0, 0.52);
+          position: absolute;
+          left: 0;
+          top: 16px;
+          transition: all 0.2s;
+        }
+        & ~ .underline {
+          content: '';
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          bottom: -1px;
+          display: block;
+          width: 0;
+          transition: all 0.2s;
+          height: 2px;
+          background-color: #1565c0;
+
+          &::after {
+            content: 'Невірний формат';
+            display: block;
+            color: #dc3545;
+            visibility: hidden;
+            transition: none;
+          }
+        }
+        &:focus {
+          & ~ .label-wrapper {
+            top: -4px;
+            color: #1565c0;
+            font-size: 0.8em;
+            visibility: visible;
+          }
+          & ~ .underline {
+            width: 100%;
+          }
+        }
+        &:not(.empty) {
+          & ~ .label-wrapper {
+            top: -4px;
+            color: #1565c0;
+            font-size: 0.8em;
+          }
+          &:invalid ~ .label-wrapper {
+            color: #dc3545;
+          }
+          &:invalid ~ .underline {
+            width: 100%;
+            background-color: #dc3545;
+
+            &::after {
+              visibility: visible;
+              transition: all 0.2s 0.2s;
+            }
+          }
+        }
+      }
+
+      textarea.input {
+        resize: none;
+        height: 150px;
+      }
+    }
+
+    &-submit {
+      &-button {
+        padding: 10px;
+        cursor: pointer;
+        min-width: 85px;
+        border-radius: 5px;
+        color: white;
+        background-color: #1565c0;
+        border: none;
+
+        fa {
+          display: none;
+        }
+
+        &:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
+
+        &.success {
+          background: #28a745;
+
+          .text {
+            display: none;
+          }
+          fa[name='check'] {
+            display: inline-block;
+          }
+        }
+
+        &.fail {
+          background: #dc3545;
+
+          .text {
+            display: none;
+          }
+          fa[name='times'] {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+}

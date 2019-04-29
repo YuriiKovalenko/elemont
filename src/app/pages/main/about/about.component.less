@@ -1,0 +1,30 @@
+@images: '/assets/images';
+
+/*------------- About -------------*/
+
+.about {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url('@{images}/about.jpg') center center / cover no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  &-text {
+    font-size: 1.5rem;
+    padding: 30px 10px;
+    text-align: justify;
+    color: white;
+
+    @media (max-width: 530px) {
+      font-style: 1.3em;
+      text-align: left;
+      margin-left: 20px;
+      padding: 15px 35px 10px 15px;
+      border-left: 3px solid #007bff;
+    }
+  }
+}
+
+@media (max-width: 530px) {
+  .about {
+    background: #343a40;
+  }
+}

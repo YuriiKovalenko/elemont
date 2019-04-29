@@ -1,0 +1,90 @@
+@images: '../../../../images';
+
+.advantages {
+  background-color: #f8f9fa;
+  padding-bottom: 0;
+
+  .advantages-wrapper {
+    justify-content: center;
+    background-color: #fff;
+    position: relative;
+
+    &::before,
+    &::after {
+      position: absolute;
+      background-color: #e0e0e0;
+
+      @media (max-width: 1080px) and (min-width: 577px) {
+        content: '';
+      }
+    }
+
+    &::before {
+      top: calc(50% - 0.5px);
+      left: 40%;
+      right: 40%;
+      height: 1px;
+    }
+
+    &::after {
+      left: calc(50% - 0.5px);
+      top: 40%;
+      bottom: 40%;
+      width: 1px;
+    }
+
+    .advantage {
+      text-align: center;
+      margin: 15px 20px;
+      padding: 5px;
+      position: relative;
+      @media (max-width: 1080px) {
+        padding: 25px 35px;
+      }
+
+      &:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        background-color: #e0e0e0;
+        @media (min-width: 1081px) {
+          width: 1px;
+          right: -20.5px;
+          top: 80px;
+          bottom: 80px;
+        }
+        @media (max-width: 1080px) and (min-width: 577px) {
+          display: none;
+        }
+        @media (max-width: 576px) {
+          height: 1px;
+          bottom: -15.5px;
+          left: 120px;
+          right: 120px;
+        }
+      }
+
+      fa {
+        font-size: 50px;
+        margin: 20px;
+      }
+    }
+    .advantage-1 fa {
+      color: #dc3545;
+    }
+    .advantage-2 fa {
+      color: #ffc107;
+    }
+    .advantage-3 fa {
+      color: #28a745;
+    }
+    .advantage-4 fa {
+      color: #17a2b8;
+    }
+  }
+  .w-100 {
+    display: none;
+    @media (max-width: 1080px) {
+      display: block;
+    }
+  }
+}

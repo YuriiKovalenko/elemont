@@ -1,0 +1,97 @@
+@images: '/assets/images';
+
+.bg(@counter: 1) when (@counter < 5) {
+  .bg(@counter + 1);
+  &-@{counter} {
+    background-image: url('@{images}/sol-@{counter}.jpg');
+  }
+}
+
+.solutions {
+  background-color: #f8f9fa;
+  padding-bottom: 0;
+
+  .sol {
+    padding: 25px 15px;
+    text-align: center;
+    background-color: #fff;
+    transition: all 0.3s ease-out;
+    cursor: pointer;
+    color: #343a40;
+
+    @media (max-width: 575px) {
+      padding: 15px;
+    }
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    &.active {
+      color: white;
+      background-color: #1565c0;
+    }
+    fa {
+      display: block;
+      font-size: 1.7em;
+    }
+  }
+
+  .sol-content {
+    background-color: #343a40;
+    color: white;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 4px 0 7px rgba(0, 0, 0, 0.25);
+    z-index: 3;
+
+    @media (max-width: 575px) {
+      height: 180px;
+      box-shadow: 0 4px 7px rgba(0, 0, 0, 0.25);
+    }
+
+    h4::after {
+      content: '';
+      display: block;
+      margin: 5px auto;
+      background-color: #fff;
+      height: 1px;
+      width: 40px;
+    }
+  }
+
+  .sol-picture {
+    padding: 0;
+    @media (max-width: 575px) {
+      height: 180px;
+      order: -1;
+    }
+  }
+
+  .sol-pic {
+    width: 100%;
+    height: 100%;
+    background: #1565c0 center center / cover;
+    .bg(1);
+
+    &-2 {
+      background-position-y: 60%;
+    }
+  }
+}
+
+.bg-all(@counter) when (@counter < 5) {
+  .bg-all(@counter + 1);
+  background+: url('@{images}/sol-@{counter}.jpg');
+}
+
+.bg-holder {
+  .bg-all(1);
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  z-index: -1;
+}

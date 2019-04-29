@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-light" [attr.transparent]="transparent" (click)="$event.target.target ? scroller.scrollTo($event.target.target) : null">
+  <div class="container">
+    <a target=".head" class="navbar-brand">Елемонт</a>
+    <button class="hamburger navbar-toggler" type="button" data-toggle="collapse" data-target="[navbarNav]"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="hr"></span>
+      <span class="hr"></span>
+      <span class="hr"></span>
+    </button>
+    <div class="collapse navbar-collapse nav-menu" navbarNav>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" target=".advantages">Переваги</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" target=".about">Про нас</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" target=".solutions">Рішення</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" target=".partners">Партнери</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" target=".contacts">Контакти</a>
+        </li>
+      </ul>
+      <a class="up" (click)="scroller.scrollTo('up')"></a>
+    </div>
+  </div>
+</nav>
