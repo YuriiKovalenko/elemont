@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { HeaderComponent } from './header/header.component';
@@ -9,6 +11,7 @@ import { AdvantagesComponent } from './advantages/advantages.component';
 import { SolutionsComponent } from './solutions/solutions.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { PartnersComponent } from './partners/partners.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 @NgModule({
   exports: [
@@ -18,7 +21,8 @@ import { PartnersComponent } from './partners/partners.component';
     AdvantagesComponent,
     SolutionsComponent,
     ContactsComponent,
-    PartnersComponent
+    PartnersComponent,
+    FeedbackComponent
   ],
   declarations: [
     NavbarComponent,
@@ -27,9 +31,15 @@ import { PartnersComponent } from './partners/partners.component';
     AdvantagesComponent,
     SolutionsComponent,
     ContactsComponent,
-    PartnersComponent
+    PartnersComponent,
+    FeedbackComponent
   ],
-  imports: [AngularFontAwesomeModule],
+  imports: [
+    AngularFontAwesomeModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
   providers: []
 })
 export class MainModule {}

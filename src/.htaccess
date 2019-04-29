@@ -1,0 +1,7 @@
+RewriteEngine on
+
+RewriteCond %{HTTP_HOST} ^elemont.com.ua [NC]
+RewriteRule ^(.*)$ https://www.elemont.com.ua/$1 [L,R=301,NC]
+
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^ https://www.elemont.com.ua/$1 [L,R=301,NE]

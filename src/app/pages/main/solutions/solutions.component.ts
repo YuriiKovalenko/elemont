@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./solutions.component.less']
 })
 export class SolutionsComponent implements OnInit {
-
+  current: string;
   constructor() { }
 
   ngOnInit() {
+    this.setCurrent('cctv');
+  }
+
+  setCurrent(value) {
+    this.current = value;
   }
 
 }

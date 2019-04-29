@@ -1,26 +1,22 @@
 <section class="contacts">
   <div class="container">
-    <div class="row text-center section-header">
-      <h2>Зв'язок з нами:</h2>
-    </div>
-    <div class="row justify-content-center">
-      <div class="anim col-md contact contact-phone">
-        <span class="contact-ico fas fa-phone"></span>
-        <span class="contact-text">
-          +38 (067) 3676396
-        </span>
+    <div class="row">
+      <div class="col-md-5 company">
+        <span class="company-label">ЕЛЕМОНТ</span>
       </div>
-      <div class="anim col-md contact contact-email">
-        <span class="contact-ico far fa-envelope"></span>
-        <span class="contact-text">
-          ele-mont@ukr.net
-        </span>
-      </div>
-      <div class="anim col-md contact contact-location">
-        <span class="contact-ico fas fa-map-marker-alt"></span>
-        <span class="contact-text">
-          бул. Шевченка, 205, м.Черкаси
-        </span>
+      <div class="col-md contact-info">
+        <h5>Офіс в Україні</h5>
+        <div class="contact">
+          <div class="contact-text">
+            <fa name="map-marker-alt"></fa> бул. Шевченка, 205,<br> м.Черкаси, Україна
+          </div>
+          <div class="contact-text email" (click)="scroller.scrollTo('.feedback')">
+            <fa name="envelope"></fa> info@elemont.com.ua
+          </div>
+          <div class="contact-text phone">
+            <fa name="phone"></fa> +380673676396
+          </div>
+        </div>
       </div>
     </div>
   </div>

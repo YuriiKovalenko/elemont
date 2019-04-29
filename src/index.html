@@ -1,134 +1,159 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Елемонт | Системи безпеки</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Системи безпеки, відеонагляд, сигналізація для підприємств, дому, офісу."
+    />
+    <meta
+      name="keywords"
+      content="Системи безпеки, Сигналізація, Відеонагляд, Охоронний комплекс, Контроль доступу, Сигнализация, Видеонаблюдение, Системы безопасности"
+    />
+    <meta name="theme-color" content="#1565c0" />
+    <meta property="og:site_name" content="ЕЛЕМОНТ" />
+    <meta property="og:title" content="Системи безпеки | Елемонт" />
+    <meta
+      property="og:description"
+      content="Системи безпеки, відеонагляд, сигналізація для підприємств, дому, офісу."
+    />
+    <meta property="og:image" content="url-img.jpg" />
+    <meta name="format-detection" content="telephone=no" />
+    <link
+      rel="manifest"
+      type="application/manifest+json"
+      href="manifest.json"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans|Patua+One"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=3" />
 
-<head>
-  <meta charset="utf-8">
-  <title>Elemont</title>
-  <base href="/">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-122484454-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Patua+One" rel="stylesheet">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
+      gtag('config', 'UA-122484454-1');
+    </script>
+  </head>
 
-<body>
-  <app-root>
-    <style>
-      @keyframes loading {
-        0% {
-          content: 'Loading.';
+  <body>
+    <app-root>
+      <style>
+        @keyframes loading {
+          0% {
+            content: 'Loading.';
+          }
+          50% {
+            content: 'Loading..';
+          }
+          100% {
+            content: 'Loading...';
+          }
         }
-        50% {
-          content: 'Loading..';
+        @keyframes move-left {
+          50% {
+            transform: translate(-15px, 15px) rotate(-45deg);
+          }
+          100% {
+            transform: translate(0, 0) rotate(-90deg);
+          }
         }
-        100% {
+        @keyframes move-right {
+          50% {
+            transform: translate(15px, -15px) rotate(-45deg);
+          }
+          100% {
+            transform: translate(0, 0) rotate(-90deg);
+          }
+        }
+        @keyframes move-up {
+          50% {
+            transform: translate(-15px, -15px) rotate(-45deg);
+          }
+          100% {
+            transform: translate(0, 0) rotate(-90deg);
+          }
+        }
+        @keyframes move-down {
+          50% {
+            transform: translate(15px, 15px) rotate(-45deg);
+          }
+          100% {
+            transform: translate(0, 0) rotate(-90deg);
+          }
+        }
+
+        .loading-screen {
+          background-color: #fff;
+          top: 0;
+          left: 0;
+          height: 100vh;
+          width: 100vw;
+          position: fixed;
+          z-index: 3000;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+        }
+        .loading-screen .loading {
+          width: 110px;
+          margin-bottom: 15px;
+          transform: rotate(45deg) scale(0.6);
+          font-size: 0px;
+        }
+        .loading-screen .loading .square {
+          display: inline-block;
+          width: 50px;
+          height: 50px;
+          background-color: #1976d2;
+        }
+        .loading-screen .loading .square-1 {
+          animation: move-up 1s infinite;
+        }
+        .loading-screen .loading .square-2 {
+          animation: move-right 1s infinite;
+        }
+        .loading-screen .loading .square-3 {
+          animation: move-left 1s infinite;
+        }
+        .loading-screen .loading .square-4 {
+          animation: move-down 1s infinite;
+        }
+        .loading-screen p::before {
           content: 'Loading...';
+          display: block;
+          animation: loading 1s linear infinite alternate forwards;
+          font-size: 1.5rem;
+          font-family: 'Patua One', cursive;
         }
-      }
-
-      @keyframes move-left {
-        50% {
-          transform: translate(-15px, 15px) rotate(-45deg);
-        }
-
-        100% {
-          transform: translate(0, 0) rotate(-90deg);
-        }
-      }
-
-      @keyframes move-right {
-        50% {
-          transform: translate(15px, -15px) rotate(-45deg);
-        }
-
-        100% {
-          transform: translate(0, 0) rotate(-90deg);
-        }
-      }
-
-      @keyframes move-up {
-        50% {
-          transform: translate(-15px, -15px) rotate(-45deg);
-        }
-
-        100% {
-          transform: translate(0, 0) rotate(-90deg);
-        }
-      }
-
-      @keyframes move-down {
-        50% {
-          transform: translate(15px, 15px) rotate(-45deg);
-        }
-
-        100% {
-          transform: translate(0, 0) rotate(-90deg);
-        }
-      }
-
-      .loading-screen {
-        background-color: #FFF;
-        top: 0;
-        left: 0;
-        height: 100vh;
-        width: 100vw;
-        position: fixed;
-        z-index: 3000;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-      }
-
-      .loading-screen .loading {
-        width: 110px;
-        margin-bottom: 15px;
-        transform: rotate(45deg) scale(0.6);
-        font-size: 0px;
-      }
-
-      .loading-screen .loading .square {
-        display: inline-block;
-        width: 50px;
-        height: 50px;
-        background-color: #1976D2;
-      }
-
-      .loading-screen .loading .square-1 {
-        animation: move-up 1s infinite;
-      }
-
-      .loading-screen .loading .square-2 {
-        animation: move-right 1s infinite;
-      }
-
-      .loading-screen .loading .square-3 {
-        animation: move-left 1s infinite;
-      }
-
-      .loading-screen .loading .square-4 {
-        animation: move-down 1s infinite;
-      }
-
-      .loading-screen p::before {
-        content: 'Loading...';
-        display: block;
-        animation: loading 1s linear infinite alternate forwards;
-        font-size: 1.5rem;
-        font-family: 'Patua One', cursive;
-      }
-    </style>
-    <div class="loading-screen">
-      <div class="loading">
-        <div class="square square-1"></div>
-        <div class="square square-2"></div>
-        <div class="square square-3"></div>
-        <div class="square square-4"></div>
+      </style>
+      <div class="loading-screen">
+        <div class="loading">
+          <div class="square square-1"></div>
+          <div class="square square-2"></div>
+          <div class="square square-3"></div>
+          <div class="square square-4"></div>
+        </div>
+        <p></p>
       </div>
-      <p></p>
-    </div>
-  </app-root>
-</body>
-
+    </app-root>
+  </body>
 </html>

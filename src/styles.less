@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-
+@font-face {
+  src: url(assets/fonts/AvenirNextCyr-Light.ttf);
+  font-family: 'Avenir';
+}
 
 div,
 p,
@@ -8,7 +11,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: 'Open Sans', sans-serif !important;
+  font-family: 'Avenir', sans-serif !important;
 }
 
 h1,
@@ -39,24 +42,25 @@ section {
   padding: 25px 0;
 }
 
-button:focus {
-  outline: none;
+*:focus {
+  outline: none !important;
 }
 
 .section-header {
   position: relative;
-  padding: 15px 0 20px;
+  padding: 25px 0 60px;
   -webkit-box-pack: center !important;
   -ms-flex-pack: center !important;
   justify-content: center !important;
   &::after {
     content: '';
     position: absolute;
-    bottom: 0px;
+    left: calc(50% - 75px);
+    bottom: 30px;
     width: 150px;
     height: 3px;
     margin-bottom: 15px;
-    background-color: #007bff;
+    background-color: #1565c0;
     border-radius: 10%;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.13);
   }

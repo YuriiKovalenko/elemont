@@ -1,67 +1,54 @@
 <section class="solutions">
-  <div class="container">
-    <div class="solutions">
-      <div class="row section-header justify-content-center">
-        <h1>Технічні рішення</h1>
+  <div class="container-fluid">
+    <div class="row section-header">
+      <h1>Технічні рішення</h1>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-6 col-md sol sol-1" [ngClass]="{ active: current === 'cctv'}" title="cctv" (click)="setCurrent(cctv.title)"
+        #cctv>
+        <fa name="video"></fa>Відеонагляд
       </div>
-      <div class="slider" class="carousel" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li class="indicator indicator-1" data-target="#slider" data-slide-to="0" class="active"></li>
-          <li class="indicator indicator-2" data-target="#slider" data-slide-to="1"></li>
-          <li class="indicator indicator-3" data-target="#slider" data-slide-to="2"></li>
-          <li class="indicator indicator-4" data-target="#slider" data-slide-to="3"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active sol sol-1">
-            <div class="sol-text">
-              <h4>Відеонагляд</h4>
-              <ul class="sol-list">
-                <li>HDCVI-камери</li>
-                <li>TurboHD-камери</li>
-                <li>IP-камери</li>
-              </ul>
-              <p>При монтуванні систем застосовується обладнання передових виробників в галузі безпеки і охорони: Atis, Dahua,
-                HIKVISION, IC-VISION, LuxCam.</p>
-            </div>
-          </div>
-          <div class="carousel-item sol sol-2">
-            <div class="sol-text">
-              <h4>Охоронні системи</h4>
-              <ul class="sol-list">
-                <li>Охоронна сигналізація складів, приміщень, офісів</li>
-                <li>Охорона периметру</li>
-                <li>Комплексні рішення</li>
-              </ul>
-            </div>
-          </div>
-          <div class="carousel-item sol sol-3">
-            <div class="sol-text">
-              <h4>Контроль доступу</h4>
-              <ul class="sol-list">
-                <li>Базові системи</li>
-                <li>Системи з обліком робочого часу</li>
-              </ul>
-            </div>
-          </div>
-          <div class="carousel-item sol sol-4">
-            <div class="sol-text">
-              <h4>Оптимізація виробництва</h4>
-              <ul class="sol-list">
-                <li>Організація обліку продукції</li>
-                <li>Контроль над штатним обладнанням</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <a class="control carousel-control-prev" href="#slider" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="control carousel-control-next" href="#slider" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
+      <div class="col-6 col-md sol sol-2" [ngClass]="{ active: current === 'protection'}" title="protection" (click)="setCurrent(protection.title)"
+        #protection>
+        <fa name="user-shield"></fa>Охоронні системи
+      </div>
+      <div class="col-6 col-md sol sol-3" [ngClass]="{ active: current === 'access'}" title="access" (click)="setCurrent(access.title)"
+        #access>
+        <fa name="fingerprint"></fa>Контроль доступу
+      </div>
+      <div class="col-6 col-md sol sol-4" [ngClass]="{ active: current === 'audit'}" title="audit" (click)="setCurrent(audit.title)"
+        #audit>
+        <fa name="business-time"></fa>Облік підприємтсв
       </div>
     </div>
+    <div class="row">
+      <div class="col-12 col-sm-6 sol-content" [ngSwitch]="current">
+        <div class="sol-text" *ngSwitchCase="'cctv'">
+          <h4>Відеонагляд</h4>
+          <p>При монтуванні систем застосовуються HDCVI, TurboHD та IP-камери передових виробників в галузі безпеки і
+            охорони.</p>
+        </div>
+        <div class="sol-text" *ngSwitchCase="'protection'">
+          <h4>Охоронні системи</h4>
+          <p>Охоронна сигналізація складів, приміщень, офісів, а також периметру не дозволять нікому пройти непоміченим.</p>
+        </div>
+        <div class="sol-text" *ngSwitchCase="'access'">
+          <h4>Контроль доступу</h4>
+          <p>Електронні замки, турнікети, пропускні пункти з обліком робочогу часу не пропустять сторонніх.</p>
+        </div>
+        <div class="sol-text" *ngSwitchCase="'audit'">
+          <h4>Оптимізація виробництва</h4>
+          <p>Контроль обладнання допоможе організувати облік продукції та оптимізувати виробництво.</p>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 sol-picture" [ngSwitch]="current">
+        <div class="sol-pic sol-pic-1" *ngSwitchCase="'cctv'"></div>
+        <div class="sol-pic sol-pic-2" *ngSwitchCase="'protection'"></div>
+        <div class="sol-pic sol-pic-3" *ngSwitchCase="'access'"></div>
+        <div class="sol-pic sol-pic-4" *ngSwitchCase="'audit'"></div>
+      </div>
+      <div class="bg-holder"></div>
+    </div>
   </div>
+
 </section>

@@ -1,274 +1,97 @@
-@images: "../../../../assets/images";
+@images: '/assets/images';
+
+.bg(@counter: 1) when (@counter < 5) {
+  .bg(@counter + 1);
+  &-@{counter} {
+    background-image: url('@{images}/sol-@{counter}.jpg');
+  }
+}
 
 .solutions {
-    background-color: #f8f9fa;
-    .solutions {
-      border-radius: 5px;
-      background-color: white;
-      box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.13);
-      &:hover {
-        transform: translate(-1px, -1px);
-        box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.13);
-        transform: translate(0, 0);
-      }
-      .sol-1 {
-        background: url("@{images}/sol-1-min.jpg") 50% 40% / cover no-repeat;
-      }
-      .sol-2 {
-        background: url("@{images}/sol-2-min.jpg") 50% 50% / cover no-repeat;
-      }
-      .sol-3 {
-        background: url("@{images}/sol-3-min.jpg") 50% 40% / cover no-repeat;
-      }
-      .sol-4 {
-        background: url("@{images}/sol-4-min.jpg") left 50% / cover no-repeat;
-      }
-      .sol {
-        height: 70vh;
-        min-height: 300px;
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
-        .sol-text {
-          position: absolute;
-          top: 10%;
-          left: 18%;
-          width: 300px;
-          max-width: 80%;
-          height: 65%;
-          max-height: 350px;
-          min-height: 260px;
-          padding: 10px;
-          color: #343a40;
-          border-radius: 15px;
-          background-color: rgba(255, 255, 255, 0.8);
-          box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-          h4 {
-            margin-left: -10px;
-            margin-right: -10px;
-            margin-bottom: 0.8rem;
-            padding-bottom: 10px;
-            border-bottom: 1px solid rgba(108, 117, 125, 0.6);
-          }
-          .sol-list {
-            padding: 0;
-            list-style: none;
-            li::before {
-              display: inline-block;
-              width: 25px;
-              height: 25px;
-              content: "";
-              vertical-align: middle;
-              background-image: url("@{images}/right.svg");
-              background-size: contain;
-            }
-          }
-        }
-      }
-      .carousel,
-      .carousel-inner {
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
-      }
-      .carousel {
-        .indicator {
-          width: 50px;
-          height: 50px;
-          background-repeat: no-repeat;
-          background-position: 50% 50%;
-          background-size: contain;
-        }
-        .carousel-indicators {
-          left: 0;
-          right: auto;
-          top: 0;
-          bottom: 0;
-          margin: 0;
-          padding: 0 10px;
-          border-bottom-left-radius: 5px;
-          background: linear-gradient(
-            90deg,
-            rgba(0, 0, 0, 0.8),
-            rgba(0, 0, 0, 0.1)
-          );
-          flex-direction: column;
-          li {
-            cursor: pointer;
-            transition: all 0.7s;
-            border: 2px solid white;
-            border-radius: 50%;
-            background-color: initial;
-            margin: 10px 0;
-            &.active {
-              border-radius: 0;
-              background-color: initial;
-            }
-          }
-        }
-        .indicator-1 {
-          background-image: url("@{images}/sol-1-ico.png");
-        }
-        .indicator-2 {
-          background-image: url("@{images}/sol-2-ico.png");
-        }
-        .indicator-3 {
-          background-image: url("@{images}/sol-3-ico.png");
-        }
-        .indicator-4 {
-          background-image: url("@{images}/sol-4-ico.png");
-        }
-        .control {
-          width: 20px;
-          height: 70px;
-          right: auto;
-          left: 25px;
-          transform: rotate(90deg);
-          z-index: 55;
-          &.carousel-control-prev {
-            top: 5%;
-            bottom: auto;
-            .carousel-control-prev-icon {
-              height: 100%;
-              width: 15px;
-              background-image: url("@{images}/prev.png");
-              background-size: contain;
-            }
-          }
-          &.carousel-control-next {
-            bottom: 5%;
-            top: auto;
-            .carousel-control-next-icon {
-              height: 100%;
-              width: 15px;
-              background-image: url("@{images}/next.png");
-              background-size: contain;
-            }
-          }
-        }
-      }
+  background-color: #f8f9fa;
+  padding-bottom: 0;
+
+  .sol {
+    padding: 25px 15px;
+    text-align: center;
+    background-color: #fff;
+    transition: all 0.3s ease-out;
+    cursor: pointer;
+    color: #343a40;
+
+    @media (max-width: 575px) {
+      padding: 15px;
+    }
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    &.active {
+      color: white;
+      background-color: #1565c0;
+    }
+    fa {
+      display: block;
+      font-size: 1.7em;
     }
   }
-  
-  @media (max-height: 680px) and (max-width: 350px) {
-    .solutions .solutions .sol {
-      height: 75vh;
+
+  .sol-content {
+    background-color: #343a40;
+    color: white;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 4px 0 7px rgba(0, 0, 0, 0.25);
+    z-index: 3;
+
+    @media (max-width: 575px) {
+      height: 180px;
+      box-shadow: 0 4px 7px rgba(0, 0, 0, 0.25);
+    }
+
+    h4::after {
+      content: '';
+      display: block;
+      margin: 5px auto;
+      background-color: #fff;
+      height: 1px;
+      width: 40px;
     }
   }
-  
-  @media (max-width: 530px) {
-    .solutions .solutions .sol .sol-text {
-      left: 50%;
-      transform: translateX(-50%);
+
+  .sol-picture {
+    padding: 0;
+    @media (max-width: 575px) {
+      height: 180px;
+      order: -1;
     }
   }
-  
-  @media (orientation: portrait) and (max-height: 640px) and (max-width: 360px) {
-    .solutions .solutions .sol .sol-text {
-      height: 75%;
-      top: 3%;
+
+  .sol-pic {
+    width: 100%;
+    height: 100%;
+    background: #1565c0 center center / cover;
+    .bg(1);
+
+    &-2 {
+      background-position-y: 60%;
     }
   }
-  
-  @media (max-height: 350px) {
-    .solutions .solutions .sol .sol-text {
-      top: 4%;
-    }
-  }
-  
-  @media (orientation: landscape) and (max-height: 640px) {
-    .solutions .solutions .sol .sol-text {
-      top: 3%;
-      height: 95%;
-    }
-  }
-  
-  @media (orientation: landscape) and (max-height: 640px) {
-    .solutions .solutions .sol .sol-text .sol-list {
-      margin-bottom: 0.5rem;
-    }
-  }
-  
-  @media (max-width: 530px) {
-    .solutions .solutions .carousel .carousel-indicators {
-      right: 0;
-      top: auto;
-      padding: 10px 0;
-      background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1));
-      flex-direction: row;
-      border-bottom-right-radius: 5px;
-    }
-  }
-  
-  @media (max-width: 530px) {
-    .solutions .solutions .carousel .carousel-indicators li {
-      margin: 0 10px;
-    }
-  }
-  
-  @media (max-width: 420px) {
-    .solutions .solutions .carousel .carousel-indicators li {
-      margin: 0 5px;
-    }
-  }
-  
-  @media (orientation: landscape) and (max-height: 560px) {
-    .solutions .solutions .carousel .carousel-indicators li {
-      margin: 5px 0;
-    }
-  }
-  
-  @media (max-width: 530px) {
-    .solutions .solutions .carousel .control {
-      transform: none;
-      top: auto !important;
-      bottom: 0px !important;
-    }
-  }
-  
-  @media (max-width: 530px) {
-    .solutions .solutions .carousel .control.carousel-control-prev {
-      left: 10px;
-    }
-  }
-  
-  @media (max-width: 380px) {
-    .solutions .solutions .carousel .control.carousel-control-prev {
-      left: 5px;
-    }
-  }
-  
-  @media (orientation: landscape) and (max-height: 540px) {
-    .solutions .solutions .carousel .control.carousel-control-prev {
-      top: 0;
-    }
-  }
-  
-  @media (orientation: landscape) and (max-height: 480px) {
-    .solutions .solutions .carousel .control.carousel-control-prev {
-      top: -5%;
-    }
-  }
-  
-  @media (max-width: 530px) {
-    .solutions .solutions .carousel .control.carousel-control-next {
-      left: auto;
-      right: 10px;
-    }
-  }
-  
-  @media (max-width: 380px) {
-    .solutions .solutions .carousel .control.carousel-control-next {
-      right: 5px;
-    }
-  }
-  
-  @media (orientation: landscape) and (max-height: 540px) {
-    .solutions .solutions .carousel .control.carousel-control-next {
-      bottom: 0;
-    }
-  }
-  
-  @media (orientation: landscape) and (max-height: 480px) {
-    .solutions .solutions .carousel .control.carousel-control-next {
-      bottom: -5%;
-    }
-  }
+}
+
+.bg-all(@counter) when (@counter < 5) {
+  .bg-all(@counter + 1);
+  background+: url('@{images}/sol-@{counter}.jpg');
+}
+
+.bg-holder {
+  .bg-all(1);
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  z-index: -1;
+}
