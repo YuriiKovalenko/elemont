@@ -1,18 +1,19 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
+import { WINDOW } from '@ng-toolkit/universal';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ScrollService {
-  constructor() {}
+  constructor(@Inject(WINDOW) private window: Window) {}
 
   scrollTo(target: string) {
     if (target === 'up') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      this.window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
-    const to: HTMLElement = document.querySelector(target);
-    to.scrollIntoView({
+    const elementToView: HTMLElement = document.querySelector(target);
+    elementToView.scrollIntoView({
       behavior: 'smooth'
     });
   }

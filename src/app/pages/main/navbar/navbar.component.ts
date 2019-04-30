@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ScrollService } from '../services/scroll.service';
+import { WINDOW } from '@ng-toolkit/universal';
 
 @Component({
   selector: 'app-main-navbar',
@@ -9,15 +10,17 @@ import { ScrollService } from '../services/scroll.service';
 export class NavbarComponent implements OnInit {
   transparent: boolean;
 
-  constructor(public scroller: ScrollService) {}
+  constructor(
+    public scroller: ScrollService,
+    @Inject(WINDOW) private window: Window
+  ) {}
 
   ngOnInit() {
-    const _this = this;
-    window.onscroll = function() {
-      _this.transparent =
-        window.scrollY > window.innerHeight / 2.6 ? false : true;
+    this.window.onscroll = () => {
+      this.transparent =
+        this.window.scrollY > this.window.innerHeight / 2.6 ? false : true;
     };
-    this.transparent = window.scrollY > window.innerHeight / 2.6 ? false : true;
+    this.transparent = this.window.scrollY > this.window.innerHeight / 2.6 ? false : true;
   }
 
   checkScroll() {}
